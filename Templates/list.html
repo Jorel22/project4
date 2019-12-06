@@ -1,0 +1,22 @@
+<!-- Author:Jordan Montenegro-->
+
+
+{% extends "raiz.html" %}
+
+{% block heading %}
+    List 
+{% endblock %}
+
+{% block body %}
+
+	
+{% for mountain in  mountains %}
+	<div class="alert alert-primary" role="alert">
+	Name: {{mountain.name}} Height: {{mountain. height}} Location: {{mountain.location}}  Regions: {{mountain.region}} 
+	<button type="submit" class="btn btn-primary" id ="seebutton" >See</button>
+    </div>
+	
+{% endfor %}
+
+
+{% endblock %}

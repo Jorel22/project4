@@ -1,0 +1,87 @@
+<!-- Author:Jordan Montenegro-->
+
+
+
+<html>
+    <head>
+        <title>My Website!</title>
+		
+        <script type="text/javascript" src="{{ url_for('static', filename='index116.js') }}"></script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	
+
+    <style>
+	
+	.navb {
+  background-color: Lightgreen;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.navi:link, .navi:visited {
+  background-color: Lightgreen;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  padding: 14px 16px;
+  font-size: 20px;
+}
+
+.navi:hover, .navi:active {
+  background-color: Green;
+}
+
+@keyframes move {
+                0% {
+                    left: 0%;
+                }
+                50% {
+                    left: 50%;
+                }
+                100% {
+                    left: 0%;
+                }
+            }
+
+            .titulo {
+                position: relative;
+                animation-name: move;
+                animation-duration: 3s;
+                animation-fill-mode: forwards;
+                animation-iteration-count: infinite;
+            }
+	
+	</style>
+	<script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const h5 = document.querySelector('.titulo');
+                h5.style.animationPlayState  = 'paused';
+                document.querySelector('#see1button').onclick = () => {
+                    if (h5.style.animationPlayState  === 'paused')
+                        h5.style.animationPlayState = 'running';
+                    else
+                        h5.style.animationPlayState  = 'paused';
+                };
+            });
+        </script>
+	</head>
+    <body>
+		<div class="titulo">
+		 Mountains
+		</div>
+		<button type="submit" class="btn btn-primary" id ="see1button">Move </button>
+		<h1> </h1>
+		Where you will be able to find data about mountains
+		<nav class= "navb">
+	<a  class="navi" href="{{url_for('index')}}">List</a>
+    <a  class="navi" href="{{url_for('images')}}">Images</a>
+    
+	</nav>
+		
+        <h2>{% block heading %}{% endblock %}</h2>
+
+        {% block body %}
+        {% endblock %}
+    </body>
+</html>
